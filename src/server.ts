@@ -68,8 +68,21 @@ import { Car, cars as cars_list } from './cars';
                 .send(`Welcome to the Cloud, ${name}!`);
   } );
 
-  // @TODO Add an endpoint to GET a list of cars
+  // Add an endpoint to GET a list of cars
   // it should be filterable by make with a query paramater
+
+  app.get("/cars/", (req: Request, res: Response) => {
+    let {make} = req.query;
+
+    let carList = cars;
+
+    if (make) {
+      carList = cars.filter(car => car.make === make);
+    }
+
+    res.status(200).send(carList)
+
+  })
 
   // @TODO Add an endpoint to get a specific car
   // it should require id
