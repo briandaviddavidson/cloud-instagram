@@ -42,7 +42,7 @@ router.get('/:id', requireAuth, async (req: Request, res: Response) => {
     if (!item) {
       console.log('Not found!');
     } else {
-      item
+      res.send(item)
     }
   })
 });
