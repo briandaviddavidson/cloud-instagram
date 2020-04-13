@@ -50,12 +50,11 @@ router.get('/:id', requireAuth, async (req: Request, res: Response) => {
 // update a specific resource
 router.patch('/:id', requireAuth, async (req: Request, res: Response) => {
   let body = req.body;
-  FeedItem.update(
+  await FeedItem.update(
     { caption: req.body.caption },
     { returning: true, where: { id: req.params.id } }
-  ).then((rows, item) => {
-    res.status(202).send({ message: "Caption updated" })
-  })
+  )
+  res.status(202).send({ message: "Caption updated" })
 });
 
 
