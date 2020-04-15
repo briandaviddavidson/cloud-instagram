@@ -31,9 +31,7 @@ import {
         deleteLocalFiles([filteredImage]);
         res.status(200);
       }
-    })
-
-    deleteLocalFiles(filteredImage);
+    });
   });
   //    4. deletes any files on the server on finish of the response
   // QUERY PARAMATERS
